@@ -1,5 +1,5 @@
 # internal 
-from lib.create_user import handle_creat_user
+from lib.create_user import handle_create_user
 
 # external 
 from fastapi import FastAPI, Request
@@ -24,7 +24,7 @@ user_counter: int = 0
 
 @app.post("/user", response_model=UserOutput, status_code=201)
 async def create_user(user: User) -> UserOutput:
-    return handle_creat_user(user)
+    return handle_create_user(user)
 
 @app.get("/users", response_model=list[User], status_code=200)
 def get_all_users() -> list[User]:
